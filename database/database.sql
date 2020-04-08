@@ -26,7 +26,7 @@ CREATE TABLE `panier` (
   `id_produit` int NOT NULL,
   `id_utilisateur` int NOT NULL,
   `quantite` int NOT NULL DEFAULT '1',
-  KEY `produit___fk` (`id_produit`),
+  PRIMARY KEY (`id_produit`,`id_utilisateur`),
   KEY `utilisateur___fk` (`id_utilisateur`),
   CONSTRAINT `produit___fk` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`),
   CONSTRAINT `utilisateur___fk` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`)
@@ -82,7 +82,7 @@ CREATE TABLE `utilisateur` (
   `password` varchar(50) NOT NULL,
   `role` varchar(20) DEFAULT 'utilisateur',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,6 +91,7 @@ CREATE TABLE `utilisateur` (
 
 LOCK TABLES `utilisateur` WRITE;
 /*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
+INSERT INTO `utilisateur` VALUES (1,'Thomas','test','utilisateur');
 /*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -103,4 +104,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-08 12:29:42
+-- Dump completed on 2020-04-08 14:52:58
