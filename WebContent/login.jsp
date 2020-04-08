@@ -72,6 +72,15 @@
 						<button class="button button1" type="submit" value="login">Commencer</button>
 					</td>
 				</tr>
+				<tr align="center" style="color: white;">
+					<td>
+						<%
+									if (request.getAttribute("errorMessage") != null) {
+										out.println(request.getAttribute("errorMessage") );
+									}
+								%>
+					</td>
+				</tr>
 			</table>
 		</form>
 	</div>
