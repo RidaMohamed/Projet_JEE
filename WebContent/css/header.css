@@ -104,3 +104,23 @@ body {
 .des{
     display: inline;
 }
+
+table{
+    table-layout: fixed;
+}
+
+td,th,tr{
+    border: 1px solid black;
+}
+
+td,th{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width:50%;
+
+}
+
+
+#total{
+    border: none;
+}

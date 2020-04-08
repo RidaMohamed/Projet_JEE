@@ -2,10 +2,7 @@ package dao;
 
 import beans.Produit;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -34,5 +31,30 @@ public class ProduitDAO {
         }
 
         return res;
+    }
+
+    public static Produit getProduit(int id_produit) {
+
+        try {
+            ConnexionBDD instance = ConnexionBDD.getInstance();
+            Connection con = instance.getCnx();
+            PreparedStatement stmt = null;
+            stmt = con.prepareStatement("select * from produit where id = ?");
+            stmt.setInt(1, id_produit);
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+
+                Produit tmp = new Produit(rs.getInt("id"),rs.getString("nom"),rs.getInt("prix"),rs.getString("image"),rs.getString("des_prod"));
+                return tmp;
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
 }

@@ -36,11 +36,15 @@
 	color: white;
 }
 </style>
-<title>Insert title here</title>
+<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="css/header.css"/>
+	<link rel="stylesheet" type="text/css" href="css/node_modules/@fortawesome/fontawesome-free/css/all.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 </head>
-<body style="font-family: system-ui;">
+<body>
+<jsp:include page="header.jsp" />
 	<div
-		style="background-color: #f1f1f1; padding: 15px; text-align: center;">
+		style="background-color: #f1f1f1; margin: 15px; text-align: center;">
 		<h1>Bienvenu à notre Boutique !!</h1>
 		<p>Cliquez ici pour acceder</p>
 		<button class="button button1">Commencer</button>

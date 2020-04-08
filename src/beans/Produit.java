@@ -1,6 +1,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Produit implements Serializable {
 
@@ -58,5 +59,22 @@ public class Produit implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Produit)) return false;
+        Produit produit = (Produit) o;
+        return getId() == produit.getId() &&
+                getPrix() == produit.getPrix() &&
+                Objects.equals(getNom(), produit.getNom()) &&
+                Objects.equals(getImage(), produit.getImage()) &&
+                Objects.equals(getDescription(), produit.getDescription());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNom(), getPrix(), getImage(), getDescription());
     }
 }
