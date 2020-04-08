@@ -17,7 +17,7 @@ function deleteElement(id) {
         count = count - quantite;
 
         if(count == 0){
-            $('table').replaceWith("<h4 style=text-align:center;margin-top:10% > Votre panier est vide </h4>");
+            $('table').replaceWith("<h4 style=text-align:center;margin-top:10% > Your cart is empty </h4>");
         }
 
         else {

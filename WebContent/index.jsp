@@ -45,9 +45,9 @@
 <jsp:include page="header.jsp" />
 	<div
 		style="margin: 15px;margin-top: 70px; text-align: center;">
-		<h1>Bienvenu à notre Boutique !!</h1>
-		<p>Cliquez ici pour acceder</p>
-		<button class="button button1">Commencer</button>
+		<h1>Welcome to our shop !!</h1>
+		<p>Click here to discover all the products !!</p>
+		<button class="button button1">Go</button>
 	</div>
 </body>
 </html>

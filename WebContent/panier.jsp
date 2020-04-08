@@ -22,17 +22,17 @@
 <jsp:include page="header.jsp" />
 
 
-<h1> Mon Panier :</h1>
+<h1>My cart :</h1>
 
 <%
     String res="<table><thead>" +
-            "<tr><th>Nom</th><th>Prix</th><th>Quantite</th> <th>Total</th> </tr></thead> <tbody>";
+            "<tr><th>Name</th><th>Price</th><th>Quantity</th> <th>Total</th> </tr></thead> <tbody>";
 
 
     HashMap<Produit,Integer> tab = (HashMap<Produit,Integer>) request.getAttribute("panier");
 
     if(tab.size() == 0){
-        out.print("<h4 style=text-align:center;margin-top:10% > Votre panier est vide </h4>");
+        out.print("<h4 style=text-align:center;margin-top:10% > Your cart is empty</h4>");
     }
 
     else {
@@ -45,13 +45,13 @@
             res += "<tr id=" + key.getId() + "> <td>" + key.getNom() + "</td> " +
                     "<td>" + key.getPrix() + "€</td> " +
                     "<td id=" + key.getId() + "quantite>" + value + "</td>" +
-                    " <td>" + key.getPrix() * value + "€</td> " +
+                    " <td>" + key.getPrix() * value + "$</td> " +
                     "<td id=total>  " +
                     "<a onclick=deleteElement(" + key.getId() + ")><span style=\"color: #e31e27;\"> <i class=\"fa fa-trash\" style=\"font-size:24px\"></i> </span></a>" +
                     " </td> </tr>";
         }
 
-        res += "<tr id=total> <td id=total></td> <td id=total></td> <td id=total></td> <td>" + somme + "€</td></tr>";
+        res += "<tr id=total> <td id=total></td> <td id=total></td> <td id=total></td> <td>" + somme + "$</td></tr>";
 
         res += "</tbody></table>";
 

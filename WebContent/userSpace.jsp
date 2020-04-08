@@ -32,7 +32,7 @@
 
         res+="<h3 class=prix>"+p.getPrix()+" $</h3>";
 
-        res+="<button onClick=ajouterPanier("+p.getId()+")>Ajouter</button>";
+        res+="<button onClick=ajouterPanier("+p.getId()+")>Add to cart</button>";
 
 
         res+="</div> </div>";
