@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `panier`
+--
+
+DROP TABLE IF EXISTS `panier`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `panier` (
+  `id_produit` int NOT NULL,
+  `id_utilisateur` int NOT NULL,
+  `quantite` int NOT NULL DEFAULT '1',
+  KEY `produit___fk` (`id_produit`),
+  KEY `utilisateur___fk` (`id_utilisateur`),
+  CONSTRAINT `produit___fk` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`),
+  CONSTRAINT `utilisateur___fk` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `panier`
+--
+
+LOCK TABLES `panier` WRITE;
+/*!40000 ALTER TABLE `panier` DISABLE KEYS */;
+/*!40000 ALTER TABLE `panier` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `produit`
 --
 
@@ -73,4 +100,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-08  9:36:35
+-- Dump completed on 2020-04-08  9:58:25
