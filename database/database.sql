@@ -53,8 +53,10 @@ CREATE TABLE `produit` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(20) NOT NULL,
   `prix` int NOT NULL DEFAULT '0',
+  `image` varchar(200) DEFAULT NULL,
+  `des_prod` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,6 +65,7 @@ CREATE TABLE `produit` (
 
 LOCK TABLES `produit` WRITE;
 /*!40000 ALTER TABLE `produit` DISABLE KEYS */;
+INSERT INTO `produit` VALUES (1,'Ordinateur',1200,'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MBP13ST-201807?wid=324&hei=324&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1531249597131','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at varius dolor. Phasellus suscipit justo non dui ornare elementum. Duis vehicula est et ligula tempus, nec ornare justo bibendum. Nulla turpis metus, blandit id cursus a, egestas sit amet libero. Aliquam a egestas diam, eget pellentesque erat. Proin non tortor sed enim placerat sagittis quis et turpis. Ut tempor leo sed sem porta placerat. Phasellus quis nisi dolor.'),(2,'Lampe',30,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at varius dolor. Phasellus suscipit justo non dui ornare elementum. Duis vehicula est et ligula tempus, nec ornare justo bibendum. Nulla turpis metus, blandit id cursus a, egestas sit amet libero. Aliquam a egestas diam, eget pellentesque erat. Proin non tortor sed enim placerat sagittis quis et turpis. Ut tempor leo sed sem porta placerat. Phasellus quis nisi dolor.'),(3,'Chaise de bureau',75,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at varius dolor. Phasellus suscipit justo non dui ornare elementum. Duis vehicula est et ligula tempus, nec ornare justo bibendum. Nulla turpis metus, blandit id cursus a, egestas sit amet libero. Aliquam a egestas diam, eget pellentesque erat. Proin non tortor sed enim placerat sagittis quis et turpis. Ut tempor leo sed sem porta placerat. Phasellus quis nisi dolor.');
 /*!40000 ALTER TABLE `produit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-08  9:58:25
+-- Dump completed on 2020-04-08 12:29:42
