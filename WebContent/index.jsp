@@ -44,7 +44,7 @@
 <body>
 <jsp:include page="header.jsp" />
 	<div
-		style="background-color: #f1f1f1; margin: 15px; text-align: center;">
+		style="margin: 15px;margin-top: 70px; text-align: center;">
 		<h1>Bienvenu à notre Boutique !!</h1>
 		<p>Cliquez ici pour acceder</p>
 		<button class="button button1">Commencer</button>
