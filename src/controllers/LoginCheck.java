@@ -48,7 +48,7 @@ public class LoginCheck extends HttpServlet {
 		} else {
 			if (user.get(2).equals("admin")) {
 				// cas admin
-				response.sendRedirect("adminSpace.jsp");
+				response.sendRedirect("admin");
 			} else {
 				// cas user
 				response.sendRedirect("user");
