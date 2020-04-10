@@ -14,10 +14,10 @@ public class AdminDAO {
 
 	// sql for prepared stmt
 	static String sql    = "select *  from utilisateur ";
-	static String sql1   = "insert into utilisateur (id, pseudo, password) values (?,?,?)";
+	static String sql1   = "insert into utilisateur (pseudo, password) values (?,?)";
 	static String sql2   = "delete from utilisateur where id=? ";
 	static String sql2_2 = "delete from panier where id_utilisateur=? ";
-	String sql3          = "update utilisateur set nom=?,password=?,role=? WHERE nom=? and role=?";
+	//static String sql3   = "select *  from utilisateur order by id desc limit 1";
 
 	// -------------------------------------------------
 
@@ -55,13 +55,21 @@ public class AdminDAO {
 		ConnexionBDD instance = ConnexionBDD.getInstance();
 		Connection con = instance.getCnx();
 		try {
-			PreparedStatement stmt = null;
-			stmt = con.prepareStatement(sql1);
-			stmt.setInt(1, 1);
-			stmt.setString(2, pseudo);
-			stmt.setString(3, pass);
+			//Statement stmt = null;
+			//stmt = con.createStatement();;
+			//recuperer le dernier id
+			//ResultSet rs = stmt.executeQuery(sql3);
+			
+			//Lancer l'ajouts
+			PreparedStatement stmt1 = null;
+			stmt1 = con.prepareStatement(sql1);
 			//
-			stmt.execute();
+			//int ID = rs.getInt("id") + 1 ;
+			//stmt1.setInt(1, ID);//le dernier ID + 1
+			stmt1.setString(1, pseudo);//pseudo de new user
+			stmt1.setString(2, pass);//mdp de new user
+			//
+			stmt1.execute();
 			b = true;
 
 		} catch (SQLException e) {

@@ -25,7 +25,8 @@
 		Collection<Utilisateur> user = (Collection<Utilisateur>) request.getAttribute("users");
 	
 	    //button ajiouter user 
-	    //out.println("<div class=button2 >Supprimer utlilisateur</div>");
+	    String url = "addUser.jsp";
+	    out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter utlilisateur</a></button></div>");
 		for (Utilisateur u : user) {
 			
 			String res = "<div class=users id=" +u.getId() + "><div class=user>";
