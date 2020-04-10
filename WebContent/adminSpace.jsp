@@ -23,16 +23,18 @@
 <body>
 	<%
 		Collection<Utilisateur> user = (Collection<Utilisateur>) request.getAttribute("users");
-
+	
+	    //button ajiouter user 
+	    //out.println("<div class=button2 >Supprimer utlilisateur</div>");
 		for (Utilisateur u : user) {
 			
-			String res = "<div class=ensemble id=" +u.getId() + "><div class=product>";
+			String res = "<div class=users id=" +u.getId() + "><div class=user>";
 			res += "<div class=description >";
 			res += "<h3 class=titre > " + u.getId()+ " " + "</h3>";
 			res += "<p class=des> <b>Pseudo</b> : " + u.getPseudo() +    "</p>";
 			res += "<p class=des> <b>Role</b> :  "   + u.getRole() +    "</p>";
 			res += "</div>";
-			res+="<div class=button1 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
+			res+="<div class=button2 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
 
 			res += "</div> </div>";
 			out.println(res);
