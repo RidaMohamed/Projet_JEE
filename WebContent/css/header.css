@@ -146,6 +146,55 @@ body {
 	color: white;
 }
 
+.div_button {
+	float: none;
+	display: block;
+	text-align: right;
+	margin : 3%;
+	border-bottom: 0.01em solid #808080;
+}
+
+.button3 {
+	background-color: #87CEEB;
+	border: 0.16em solid #87CEEB;
+	border-radius: 2em;
+	color: white;
+	padding: 4px 14px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	margin: 4px 20px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.button3 {
+	background-color: white;
+	color: black;
+	border: 2px solid #87CEEB;
+}
+
+.button3:hover {
+	background-color: #87CEEB;
+	color: white;
+}
+
+.button3 a {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 2px;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.button3 a:hover {
+	color: white;
+
+}
+
+
 table {
 	table-layout: fixed;
 }

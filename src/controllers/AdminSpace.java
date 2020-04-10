@@ -35,7 +35,6 @@ public class AdminSpace extends HttpServlet {
 		// getting parameters
 		int id      = Integer.valueOf(request.getParameter("id"));
         String sup  = request.getParameter("suppression");
-        System.out.print("here");
          
         if(sup != null){
             AdminDAO.deleteUser(id);
