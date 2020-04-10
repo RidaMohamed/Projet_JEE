@@ -12,6 +12,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
 	rel="stylesheet">
+<script src="js/SupprimerUtilisateur.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>admin</title>
@@ -25,13 +26,13 @@
 
 		for (Utilisateur u : user) {
 			
-			String res = "<div class=ensemble><div class=product>";
-			res += "<div class=description>";
-			res += "<h3 class=titre> " + u.getId()+ " " + "</h3>";
+			String res = "<div class=ensemble id=" +u.getId() + "><div class=product>";
+			res += "<div class=description >";
+			res += "<h3 class=titre > " + u.getId()+ " " + "</h3>";
 			res += "<p class=des> <b>Pseudo</b> : " + u.getPseudo() +    "</p>";
 			res += "<p class=des> <b>Role</b> :  "   + u.getRole() +    "</p>";
 			res += "</div>";
-			res+="<button class=button1 >Supprimer utlilisateur</button>";
+			res+="<div class=button1 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
 
 			res += "</div> </div>";
 			out.println(res);

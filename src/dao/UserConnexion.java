@@ -31,10 +31,7 @@ public class UserConnexion {
 			} else {
 				user.add("-1");
 			}
-			//fermer tout
-			rs.close();
-			stmt.close();
-			ConnexionBDD.getInstance().closeCnx();
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}

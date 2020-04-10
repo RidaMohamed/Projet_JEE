@@ -13,10 +13,11 @@ import beans.Utilisateur;
 public class AdminDAO {
 
 	// sql for prepared stmt
-	static String sql = "select *  from utilisateur ";
-	static String sql1 = "insert into utilisateur (id, pseudo, password) values (?,?,?)";
-	String sql2 = "delete from utilisateur where nom=? and role='utlilisateur'";
-	String sql3 = "update utilisateur set nom=?,password=?,role=? WHERE nom=? and role=?";
+	static String sql    = "select *  from utilisateur ";
+	static String sql1   = "insert into utilisateur (id, pseudo, password) values (?,?,?)";
+	static String sql2   = "delete from utilisateur where id=? ";
+	static String sql2_2 = "delete from panier where id_utilisateur=? ";
+	String sql3          = "update utilisateur set nom=?,password=?,role=? WHERE nom=? and role=?";
 
 	// -------------------------------------------------
 
@@ -62,9 +63,6 @@ public class AdminDAO {
 			//
 			stmt.execute();
 			b = true;
-			//closing stmt & cnx
-			stmt.close();
-			con.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -73,5 +71,31 @@ public class AdminDAO {
 		return b;
 	}
 
+	
+	public static boolean deleteUser(int id) {
+		boolean b = false;
+
+		// create connexion
+		ConnexionBDD instance = ConnexionBDD.getInstance();
+		Connection con = instance.getCnx();
+		try {
+			PreparedStatement stmt = null;
+			PreparedStatement stmt2 = null;
+			stmt = con.prepareStatement(sql2_2);
+			stmt.setInt(1, id);
+			stmt2 = con.prepareStatement(sql2);
+			stmt2.setInt(1, id);
+			
+			//cas de FOREIGN KEY dans la table de pannier
+			stmt.execute();
+			stmt2.execute();
+			b = true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return b;
+	}
 
 }

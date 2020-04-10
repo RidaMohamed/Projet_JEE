@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.Utilisateur;
 import dao.AdminDAO;
+import dao.PanierDAO;
 
 @WebServlet("/AdminSpace")
 public class AdminSpace extends HttpServlet {
@@ -32,7 +33,19 @@ public class AdminSpace extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		// getting parameters
+		int id      = Integer.valueOf(request.getParameter("id"));
+		String pseudo = request.getParameter("pseudo");
+        String sup  = request.getParameter("suppression");
+        System.out.print("here");
+         
+        if(sup != null){
+            AdminDAO.deleteUser(id);
+        }
+        else {
+            //PanierDAO.ajouterPanier(Integer.parseInt(name));
+        }
+
 	}
 
 }
