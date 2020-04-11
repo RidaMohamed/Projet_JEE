@@ -1,4 +1,4 @@
-package controler;
+package controllers;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class AdminFilter implements Filter {
+public class UserFilter implements Filter {
     public void destroy() {
     }
 
@@ -20,7 +20,7 @@ public class AdminFilter implements Filter {
 
         if(log != null) {
 
-            if (log.equals("true")) {
+            if (log.equals("false")) {
                 chain.doFilter(req, resp);
             } else {
                 response.sendRedirect(request.getContextPath() + "/login");

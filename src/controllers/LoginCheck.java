@@ -42,7 +42,7 @@ public class LoginCheck extends HttpServlet {
 
 		if (user.get(0).equals("-1")) {
 			//erreur sur le login
-			request.setAttribute("errorMessage", "pseudo or password errone");
+			request.setAttribute("errorMessage", "pseudo or password error");
 			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
 		} else {

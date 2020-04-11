@@ -24,7 +24,7 @@
                             "                <p class=\"content\">Connected as a :</p>\n" +
                             "                 <p>     "+session.getAttribute("pseudo")+"                          </p>      " +
                             "                 <p>        "+admin+"                          </p>      " +
-                            "                <a href=" +request.getContextPath()+"/user/logout class=\"content\">\n" +
+                            "                <a href=" +request.getContextPath()+"/logout class=\"content\">\n" +
                             "                    <span style=\"color: #ff0d0d;\">\n" +
                             "                    <i class=\"fas fa-sign-out-alt \"></i>\n" +
                             "                    </span>\n" +

@@ -63,7 +63,7 @@
 
 	<servlet-mapping>
 		<servlet-name>Logout</servlet-name>
-		<url-pattern>/user/logout</url-pattern>
+		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
@@ -79,7 +79,7 @@
 
 	<filter>
 		<filter-name>admin</filter-name>
-		<filter-class>controler.AdminFilter</filter-class>
+		<filter-class>controllers.AdminFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>admin</filter-name>
@@ -89,7 +89,7 @@
 
 	<filter>
 		<filter-name>user</filter-name>
-		<filter-class>controler.UserFilter</filter-class>
+		<filter-class>controllers.UserFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>user</filter-name>
