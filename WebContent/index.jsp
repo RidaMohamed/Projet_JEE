@@ -13,10 +13,13 @@
 <body>
 <jsp:include page="header.jsp" />
 	<div
-		style="margin: 15px;margin-top: 70px; text-align: center;">
+		style="margin: 15px;margin-top: 70px;margin-bottom: 20%; text-align: center;">
 		<h1>Welcome to our shop !!</h1>
 		<p>Click here to discover all the products !!</p>
-		<a class="button button1" href="login.jsp">Go</a>
+		<a class="button button1" href="${pageContext.request.contextPath}/login">Go</a>
 	</div>
+
+
+<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -24,6 +24,7 @@
 
 <h1>My cart :</h1>
 
+<div class="pan">
 <%
     String res="<table><thead>" +
             "<tr><th>Name</th><th>Price</th><th>Quantity</th> <th>Total</th> </tr></thead> <tbody>";
@@ -47,7 +48,7 @@
                     "<td id=" + key.getId() + "quantite>" + value + "</td>" +
                     " <td>" + key.getPrix() * value + "$</td> " +
                     "<td id=total>  " +
-                    "<a onclick=deleteElement(" + key.getId() + ")><span style=\"color: #e31e27;\"> <i class=\"fa fa-trash\" style=\"font-size:24px\"></i> </span></a>" +
+                    "<a onclick=deleteElement(" + key.getId()+",'"+request.getContextPath()+"/user/panier')><span style=\"color: #e31e27;\"> <i class=\"fa fa-trash\" style=\"font-size:24px\"></i> </span></a>" +
                     " </td> </tr>";
         }
 
@@ -58,6 +59,7 @@
         out.print(res);
     }
 %>
-
+</div>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

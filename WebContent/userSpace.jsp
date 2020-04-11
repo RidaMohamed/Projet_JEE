@@ -32,7 +32,7 @@
 
         res+="<h3 class=prix>"+p.getPrix()+" $</h3>";
 
-        res+="<button onClick=ajouterPanier("+p.getId()+")>Add to cart</button>";
+        res+="<button onClick=ajouterPanier("+p.getId()+",'"+request.getContextPath()+"/user/panier')>Add to cart</button>";
 
 
         res+="</div> </div>";
@@ -40,6 +40,6 @@
     }
 
     out.println(); %>
-
+<jsp:include page="footer.jsp" />
 </body>
 </html>

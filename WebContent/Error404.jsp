@@ -11,12 +11,13 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-<div style="margin: 15px;margin-top: 70px; text-align: center;">
+<div style="margin: 15px;margin-top: 70px;margin-bottom: 10%; text-align: center;">
 
     <h1>Oups !!!</h1>
     <p>Article not found, sorry :(</p>
 
     <img src="https://i.giphy.com/media/RjoLWhQBFEcHS/giphy.gif"/>
 </div>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

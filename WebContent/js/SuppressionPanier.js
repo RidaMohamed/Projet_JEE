@@ -1,7 +1,7 @@
-function deleteElement(id) {
+function deleteElement(id,url) {
 
     $.ajax({
-        url : 'panier',
+        url : url,
         type : 'POST', // Le type de la requête HTTP, ici devenu POST
         data : 'id=' + id +"&suppression=true", // On fait passer nos variables, exactement comme en GET, au script more_com.php
     }).done(function () {

@@ -16,8 +16,9 @@
 
 </head>
 <body>
+<jsp:include page="header.jsp" />
 	<form action="AddUser" method="post">
-		<h2>Ajouter un Utilisateur :</h2>
+		<h2>Add user :</h2>
 		<div class="container">
 		
 			<label for="nom"><b>Pseudo</b></label> 
@@ -26,9 +27,10 @@
 			<label for="pass"><b>Password</b></label> 
 			<input type="password" placeholder="Entrer Password" name="pass" required>
 
-			<button class="button button1" type="submit">Ajouter</button>
+			<button class="button button1" type="submit">Add</button>
 
 		</div>
 	</form>
+<jsp:include page="footer.jsp" />
 </body>
 </html>

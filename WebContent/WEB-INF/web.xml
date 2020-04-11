@@ -34,6 +34,11 @@
 		<servlet-class>controllers.LogOut</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>addUser</servlet-name>
+		<servlet-class>controllers.AddUser</servlet-class>
+	</servlet>
+
 
 
 	<servlet-mapping>
@@ -59,6 +64,11 @@
 	<servlet-mapping>
 		<servlet-name>Logout</servlet-name>
 		<url-pattern>/user/logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>addUser</servlet-name>
+		<url-pattern>/admin/adduser</url-pattern>
 	</servlet-mapping>
 
 	<error-page>

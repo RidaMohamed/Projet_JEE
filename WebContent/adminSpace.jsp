@@ -24,7 +24,8 @@
 		Collection<Utilisateur> user = (Collection<Utilisateur>) request.getAttribute("users");
 	
 	    //button ajiouter user 
-	    String url = "addUser.jsp";
+	    String url = request.getContextPath()+"/admin/adduser";
+	    out.print("<div class=pan>");
 	    out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter utlilisateur</a></button></div>");
 		for (Utilisateur u : user) {
 			
@@ -40,6 +41,9 @@
 			out.println(res);
 		}
 
+		out.print("</div>");
+
 	%>
+<jsp:include page="footer.jsp" />
 </body>
 </html>
