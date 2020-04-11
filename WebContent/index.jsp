@@ -16,7 +16,7 @@
 		style="margin: 15px;margin-top: 70px;margin-bottom: 20%; text-align: center;">
 		<h1>Welcome to our shop !!</h1>
 		<p>Click here to discover all the products !!</p>
-		<a class="button button1" href="${pageContext.request.contextPath}/login">Go</a>
+		<a class="button button1" href="${pageContext.request.contextPath}/user">Go</a>
 	</div>
 
 
