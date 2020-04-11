@@ -4,17 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/style1.css" />
-<link rel="stylesheet" type="text/css" href="css/header.css" />
-<link rel="stylesheet" type="text/css"
-	href="css/node_modules/@fortawesome/fontawesome-free/css/all.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css"/>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css"/>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/node_modules/@fortawesome/fontawesome-free/css/all.css"/>
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
 	rel="stylesheet">
 <title>Login</title>
 </head>
 <body>
-<body>
+<jsp:include page="header.jsp" />
 	<form action="LoginCheck" method="post">
 		<h2>Login :</h2>
 		<div class="container">
@@ -33,6 +32,5 @@
  	            %>
 		</label>
 	</form>
-</body>
 </body>
 </html>

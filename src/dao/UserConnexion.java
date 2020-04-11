@@ -38,4 +38,52 @@ public class UserConnexion {
 
 		return user;
 	}
+
+    public int getUserId(String pseudo, String pass) {
+		int id =-1;
+		try {
+			// getting the cnx
+			Connection con = ConnexionBDD.getInstance().getCnx();
+			//preparer le stmt
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, pseudo);
+			stmt.setString(2, pass);
+
+			//executer la requete
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				id=rs.getInt("id");
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return id;
+    }
+
+	public String getPseudo(String pseudo, String pass) {
+		String id ="";
+		try {
+			// getting the cnx
+			Connection con = ConnexionBDD.getInstance().getCnx();
+			//preparer le stmt
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, pseudo);
+			stmt.setString(2, pass);
+
+			//executer la requete
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				id=rs.getString("pseudo");
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return id;
+	}
 }

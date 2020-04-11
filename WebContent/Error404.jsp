@@ -4,9 +4,9 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="css/header.css"/>
-    <link rel="stylesheet" type="text/css" href="css/node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <title>Error 404</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/node_modules/@fortawesome/fontawesome-free/css/all.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -15,6 +15,8 @@
 
     <h1>Oups !!!</h1>
     <p>Article not found, sorry :(</p>
+
+    <img src="https://i.giphy.com/media/RjoLWhQBFEcHS/giphy.gif"/>
 </div>
 </body>
 </html>

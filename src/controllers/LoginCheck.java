@@ -23,8 +23,9 @@ public class LoginCheck extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+		dispatcher.forward(request, response);
+    }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -38,7 +39,6 @@ public class LoginCheck extends HttpServlet {
 		//retrive data from to bdd
 		UserConnexion cnx = new UserConnexion();
 		user = cnx.checklogin(pseudo, pass);
-		System.out.println(pseudo);
 
 		if (user.get(0).equals("-1")) {
 			//erreur sur le login
@@ -46,12 +46,22 @@ public class LoginCheck extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
 		} else {
+
+			// Find id user
+			int id = cnx.getUserId(pseudo,pass);
+			request.getSession().setAttribute("id",id);
+
+			String nom = cnx.getPseudo(pseudo,pass);
+			request.getSession().setAttribute("pseudo",nom);
+
 			if (user.get(2).equals("admin")) {
 				// cas admin
 				response.sendRedirect("admin");
+				request.getSession().setAttribute("admin","true");
 			} else {
 				// cas user
 				response.sendRedirect("user");
+				request.getSession().setAttribute("admin","false");
 			}
 		}
 	}

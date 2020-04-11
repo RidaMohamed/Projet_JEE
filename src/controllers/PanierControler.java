@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -18,14 +19,16 @@ public class PanierControler extends HttpServlet {
         String name =request.getParameter("id");
         String sup=request.getParameter("suppression");
 
+        HttpSession session = request.getSession(true);
+        int id= (int) session.getAttribute("id");
 
         if(sup != null){
 
             // TODO AVEC L'ID USER en SESSION
-            PanierDAO.supprimer(Integer.parseInt(name),1);
+            PanierDAO.supprimer(Integer.parseInt(name),id);
         }
         else {
-            PanierDAO.ajouterPanier(Integer.parseInt(name));
+            PanierDAO.ajouterPanier(Integer.parseInt(name),id);
         }
 
     }

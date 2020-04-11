@@ -12,10 +12,10 @@
 <head>
     <title>Mon Panier</title>
 </head>
-<link rel="stylesheet" type="text/css" href="css/header.css"/>
-<link rel="stylesheet" type="text/css" href="css/node_modules/@fortawesome/fontawesome-free/css/all.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/node_modules/@fortawesome/fontawesome-free/css/all.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-<script src="js/SuppressionPanier.js"></script>
+<script src="${pageContext.request.contextPath}/js/SuppressionPanier.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <body>
 

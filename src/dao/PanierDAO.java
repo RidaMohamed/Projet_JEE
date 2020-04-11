@@ -2,6 +2,7 @@ package dao;
 
 import beans.Produit;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +11,11 @@ import java.util.HashMap;
 
 public class PanierDAO {
 
-    public static void ajouterPanier(int p){
+    public static void ajouterPanier(int p, int id){
 
 
         try {
+
             int id_user =1;
             int id_produit=p;
 
@@ -32,7 +34,7 @@ public class PanierDAO {
 
                 // TODO AVEC L'ID EN VARIABLE DE SESSION
                 //ID User
-                stmt.setInt(2, 1);
+                stmt.setInt(2, id);
 
                 //Quantite
                 stmt.setInt(3, nombreProduit);
