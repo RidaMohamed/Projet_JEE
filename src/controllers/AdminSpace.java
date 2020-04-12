@@ -1,7 +1,6 @@
 package controllers;
 
 import java.io.IOException;
-import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Utilisateur;
-import dao.AdminDAO;
 
 @WebServlet("/AdminSpace")
 public class AdminSpace extends HttpServlet {
@@ -22,10 +19,6 @@ public class AdminSpace extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // getting all users
-		Collection<Utilisateur> allUsers = AdminDAO.getAllUsers();
-
-        request.setAttribute("users", allUsers);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/adminSpace.jsp");
         dispatcher.forward(request, response);
@@ -33,12 +26,12 @@ public class AdminSpace extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// getting parameters
-		int id      = Integer.valueOf(request.getParameter("id"));
-        String sup  = request.getParameter("suppression");
+		//int id      = Integer.valueOf(request.getParameter("id"));
+        //String sup  = request.getParameter("suppression");
          
-        if(sup != null){
-            AdminDAO.deleteUser(id);
-        }
+       // if(sup != null){
+           // AdminDAO.deleteUser(id);
+      //  }
 
 	}
 

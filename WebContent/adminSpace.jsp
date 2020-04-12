@@ -6,12 +6,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css"/>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/node_modules/@fortawesome/fontawesome-free/css/all.css"/>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/header.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/node_modules/@fortawesome/fontawesome-free/css/all.css" />
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
 	rel="stylesheet">
-	<script src="${pageContext.request.contextPath}/js/SupprimerUtilisateur.js"></script>
+<script
+	src="${pageContext.request.contextPath}/js/SupprimerUtilisateur.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>admin</title>
@@ -20,30 +25,23 @@
 <jsp:include page="header.jsp" />
 
 <body>
-	<%
-		Collection<Utilisateur> user = (Collection<Utilisateur>) request.getAttribute("users");
-	
-	    //button ajiouter user 
-	    String url = request.getContextPath()+"/admin/adduser";
-	    out.print("<div class=pan>");
-	    out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter utlilisateur</a></button></div>");
-		for (Utilisateur u : user) {
-			
-			String res = "<div class=users id=" +u.getId() + "><div class=user>";
-			res += "<div class=description >";
-			res += "<h3 class=titre > " + u.getId()+ " " + "</h3>";
-			res += "<p class=des> <b>Pseudo</b> : " + u.getPseudo() +    "</p>";
-			res += "<p class=des> <b>Role</b> :  "   + u.getRole() +    "</p>";
-			res += "</div>";
-			res+="<div class=button2 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
 
-			res += "</div> </div>";
-			out.println(res);
-		}
-
-		out.print("</div>");
-
-	%>
-<jsp:include page="footer.jsp" />
+	<div
+		style="margin: 15px; margin-top: 70px; margin-bottom: 20%; text-align: center;">
+		<h1>Welcome to your plat-forme !!</h1>
+		<div>
+			<div  class="div_welcome_admin">
+				<p>Click here to manage the products !!</p>
+				<a class="button button1"
+					href="admin/gestionproduit">Go</a>
+			</div>
+			<div  class="div_welcome_admin_2">
+				<p>And here to manage all the users !!</p>
+				<a class="button button1"
+					href="admin/gestionuser">Go</a>
+			</div>
+		</div>
+	</div>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

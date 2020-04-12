@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.Collection"%>
+<%@ page import="beans.Utilisateur"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +24,7 @@
 
 <body>
 	<%
-		/*Collection<Utilisateur> user = (Collection<Utilisateur>) request.getAttribute("users");
+		Collection<Utilisateur> user = (Collection<Utilisateur>) request.getAttribute("users");
 		
 		//button ajiouter user 
 		String url = request.getContextPath()+"/admin/adduser";
@@ -42,7 +44,7 @@
 			out.println(res);
 		}
 		
-		out.print("</div>");*/
+		out.print("</div>");
 	%>
 	<jsp:include page="footer.jsp" />
 </body>
