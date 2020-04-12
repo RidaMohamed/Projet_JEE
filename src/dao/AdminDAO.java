@@ -18,6 +18,7 @@ public class AdminDAO {
 	static String sql2   = "delete from utilisateur where id=? ";
 	static String sql2_2 = "delete from panier where id_utilisateur=? ";
 	static String sql3   = "delete from produit where id=?";
+	static String sql4   = "insert produit (nom, prix, des_prod) values (?,?,?)";
 
 	// -------------------------------------------------
 
@@ -111,6 +112,29 @@ public class AdminDAO {
 			stmt.setInt(1, id);
 			
 			//cas de FOREIGN KEY dans la table de pannier
+			stmt.execute();
+			b = true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return b;
+	}
+	
+	public static boolean addProduit(String nomProduit, String desProduit, int prixProduit) {
+		boolean b = false;
+
+		// create connexion
+		ConnexionBDD instance = ConnexionBDD.getInstance();
+		Connection con = instance.getCnx();
+		try {
+			PreparedStatement stmt = null;
+			stmt = con.prepareStatement(sql4);
+			stmt.setString(1, nomProduit);
+			stmt.setInt(2, prixProduit);
+			stmt.setString(3, desProduit);
+			
 			stmt.execute();
 			b = true;
 

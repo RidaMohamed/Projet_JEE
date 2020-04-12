@@ -27,7 +27,7 @@
 		Collection<Produit> produit = (Collection<Produit>) request.getAttribute("produits");
 		
 		//button ajiouter user 
-		String url = request.getContextPath()+"/admin/adduser";
+		String url = request.getContextPath()+"/admin/addproduit";
 		out.print("<div class=pan>");
 		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter produit</a></button></div>");
 		for (Produit p : produit) {
