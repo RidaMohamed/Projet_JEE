@@ -1,8 +1,8 @@
 <%@ page import="dao.PanierDAO" %>
 <div class="header">
-    <a href=${pageContext.request.contextPath} class="logo">JEE Online Store</a>
+    <a href="${pageContext.request.contextPath}" class="logo">JEE Online Store</a>
     <div class="header-right">
-        <a class="active" href=${pageContext.request.contextPath}>Home</a>
+        <a class="active" href="${pageContext.request.contextPath}">Home</a>
         <a href="${pageContext.request.contextPath}/user">User space</a>
         <a href="${pageContext.request.contextPath}/admin">Admin space</a>
 
@@ -12,13 +12,19 @@
                 if(session.getAttribute("id") != null) {
 
                     String admin = (String) session.getAttribute("admin");
+                    String a1 = "" ;
+                    String a2 = "" ;
 
-                    if(admin.equals("true"))
+                    if(admin.equals("true")){
                         admin="Administrateur";
+                        a1 = "<a href= \"admin/gestionuser\" >Gérer users</a>";
+                        a2 = "<a href= \"admin/gestionproduit\" >Gérer produits</a>";
+                    }
                     else
                         admin="Utilisateur";
 
-                    out.println(" <div class=\"dropdown\">\n" +
+                    out.println(a1 + a2 +
+                    		" <div class=\"dropdown\">\n" +
                             "            <i class=\"fas fa-user fa-2x\"></i>\n" +
                             "            <div class=\"dropdown-content\">\n" +
                             "                <p class=\"content\">Connected as a :</p>\n" +

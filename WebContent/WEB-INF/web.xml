@@ -38,8 +38,16 @@
 		<servlet-name>addUser</servlet-name>
 		<servlet-class>controllers.AddUser</servlet-class>
 	</servlet>
-
-
+	
+	<servlet>
+		<servlet-name>gestionUser</servlet-name>
+		<servlet-class>controllers.GererUser</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>gestionProduit</servlet-name>
+		<servlet-class>controllers.GererProduit</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>User</servlet-name>
@@ -70,6 +78,16 @@
 	<servlet-mapping>
 		<servlet-name>addUser</servlet-name>
 		<url-pattern>/admin/adduser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>gestionUser</servlet-name>
+		<url-pattern>/admin/gestionuser</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>gestionProduit</servlet-name>
+		<url-pattern>/admin/gestionproduit</url-pattern>
 	</servlet-mapping>
 
 	<error-page>
