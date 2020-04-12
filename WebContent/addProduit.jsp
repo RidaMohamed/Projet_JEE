@@ -28,7 +28,7 @@
 			<input type="text" placeholder="Entrer prix" name="prix_Produit" required>
 			
 			<label for="descr"><b>Description</b></label> 
-			<input type="text" placeholder="Entrer description" name="description_Produit" required>
+			<input type="text" placeholder="Entrer description" name="description_Produit" style="font-size:10px;"required>
 
 			<button class="button button1" type="submit">Add</button>
 

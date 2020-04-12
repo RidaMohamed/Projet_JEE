@@ -29,7 +29,8 @@
 		//button ajiouter user 
 		String url = request.getContextPath()+"/admin/adduser";
 		out.print("<div class=pan>");
-		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter utlilisateur</a></button></div>");
+		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter utlilisateur</a></button>"+
+		"<button class=button3 ><a href=# >Modifier utlilisateur</a></button></div>");
 		for (Utilisateur u : user) {
 			
 			String res = "<div class=users id=" +u.getId() + "><div class=user>";

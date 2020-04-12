@@ -185,15 +185,25 @@ body {
 .div_welcome_admin {
 	display: inline-block;
 	margin: 4px;
-	padding : 20px;
-	border-right: 0.01em solid #808080;
+	padding: 20px;
+	border: 0.01em solid #808080;
+	transition-duration: 0.05s;
+}
+
+.div_welcome_admin:hover {
+	border: 0.16em solid #808080;
 }
 
 .div_welcome_admin_2 {
 	display: inline-block;
-	margin:  4px;
-	border-left: 0.01em solid #808080;
-	padding : 20px;
+	margin: 4px;
+	border: 0.01em solid #808080;
+	padding: 20px;
+	transition-duration: 0.1s;
+}
+
+.div_welcome_admin_2:hover {
+	border: 0.16em solid #808080;
 }
 
 table {
