@@ -33,10 +33,9 @@ public class AddUser extends HttpServlet {
 		
 		//Lancer la requette
 		boolean b = AdminDAO.addUser(pseudo, pass);
-		System.out.print("here");
 		if(b) {
 			//Vers admin space
-			response.sendRedirect("admin");			
+			response.sendRedirect("");			
 		}
 		else
 		{

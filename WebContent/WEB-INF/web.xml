@@ -49,6 +49,7 @@
 	<servlet-mapping>
 		<servlet-name>Admin</servlet-name>
 		<url-pattern>/admin</url-pattern>
+		<url-pattern>/admin/</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

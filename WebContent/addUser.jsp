@@ -17,7 +17,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-	<form action="AddUser" method="post">
+	<form action="adduser" method="post">
 		<h2>Add user :</h2>
 		<div class="container">
 		
