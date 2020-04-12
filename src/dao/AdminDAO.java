@@ -17,7 +17,7 @@ public class AdminDAO {
 	static String sql1   = "insert into utilisateur (pseudo, password) values (?,?)";
 	static String sql2   = "delete from utilisateur where id=? ";
 	static String sql2_2 = "delete from panier where id_utilisateur=? ";
-	//static String sql3   = "select *  from utilisateur order by id desc limit 1";
+	static String sql3   = "delete from produit where id=?";
 
 	// -------------------------------------------------
 
@@ -55,17 +55,10 @@ public class AdminDAO {
 		ConnexionBDD instance = ConnexionBDD.getInstance();
 		Connection con = instance.getCnx();
 		try {
-			//Statement stmt = null;
-			//stmt = con.createStatement();;
-			//recuperer le dernier id
-			//ResultSet rs = stmt.executeQuery(sql3);
 			
-			//Lancer l'ajouts
 			PreparedStatement stmt1 = null;
 			stmt1 = con.prepareStatement(sql1);
 			//
-			//int ID = rs.getInt("id") + 1 ;
-			//stmt1.setInt(1, ID);//le dernier ID + 1
 			stmt1.setString(1, pseudo);//pseudo de new user
 			stmt1.setString(2, pass);//mdp de new user
 			//
@@ -97,6 +90,28 @@ public class AdminDAO {
 			//cas de FOREIGN KEY dans la table de pannier
 			stmt.execute();
 			stmt2.execute();
+			b = true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return b;
+	}
+	
+	public static boolean deleteProduit(int id) {
+		boolean b = false;
+
+		// create connexion
+		ConnexionBDD instance = ConnexionBDD.getInstance();
+		Connection con = instance.getCnx();
+		try {
+			PreparedStatement stmt = null;
+			stmt = con.prepareStatement(sql3);
+			stmt.setInt(1, id);
+			
+			//cas de FOREIGN KEY dans la table de pannier
+			stmt.execute();
 			b = true;
 
 		} catch (SQLException e) {
