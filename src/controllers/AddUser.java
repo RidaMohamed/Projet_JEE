@@ -35,7 +35,7 @@ public class AddUser extends HttpServlet {
 		boolean b = AdminDAO.addUser(pseudo, pass);
 		if(b) {
 			//Vers admin space
-			response.sendRedirect("");			
+			response.sendRedirect("gestionuser");			
 		}
 		else
 		{

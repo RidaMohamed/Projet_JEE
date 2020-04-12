@@ -17,7 +17,7 @@
 	src="${pageContext.request.contextPath}/js/SupprimerUtilisateur.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<title>admin</title>
+<title>Gestion user</title>
 </head>
 
 <jsp:include page="header.jsp" />

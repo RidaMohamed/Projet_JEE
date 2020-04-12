@@ -16,22 +16,31 @@ import dao.AdminDAO;
 @WebServlet("/GererUser")
 public class GererUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public GererUser() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // getting all users
+	public GererUser() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// getting all users
 		Collection<Utilisateur> allUsers = AdminDAO.getAllUsers();
 
-        request.setAttribute("users", allUsers);
-        
+		request.setAttribute("users", allUsers);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/gestionUser.jsp");
 		dispatcher.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		// getting parameters
+		int id = Integer.valueOf(request.getParameter("id"));
+		String sup = request.getParameter("suppression");
+        System.out.println(id);
+
+		if (sup != null) {
+			AdminDAO.deleteUser(id);
+		}
 	}
 
 }

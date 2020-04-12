@@ -25,13 +25,6 @@ public class AdminSpace extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// getting parameters
-		//int id      = Integer.valueOf(request.getParameter("id"));
-        //String sup  = request.getParameter("suppression");
-         
-       // if(sup != null){
-           // AdminDAO.deleteUser(id);
-      //  }
 
 	}
 
