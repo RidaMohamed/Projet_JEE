@@ -207,11 +207,16 @@ body {
 }
 
 table {
+	padding-top: 3%;
 	table-layout: fixed;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 30px;
+	text-align: center;
 }
 
 td, th, tr {
-	border: 1px solid black;
+	border: 1px solid #87CEEB;
+	border-radius: 5px;
 }
 
 td, th {
@@ -325,6 +330,17 @@ html, body {
 .pan {
 	margin-bottom: 22%;
 }
+#petit{
+
+	padding-top: 3%;
+	width: 50px;
+	height: 50px;
+}
+
+#nom{
+	display: inline-block;
+	vertical-align: middle;
+}
 
 @media only screen and (min-width: 1280px) {
 	.contain {
@@ -373,7 +389,7 @@ html, body {
 	}
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
 	.header a {
 		float: none;
 		display: block;
@@ -392,4 +408,8 @@ html, body {
 	.dropdown {
 		margin-left: 2%;
 	}
+	.card{
+		margin: 0;
+	}
+
 }

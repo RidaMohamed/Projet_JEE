@@ -17,8 +17,8 @@
 
                     if(admin.equals("true")){
                         admin="Administrateur";
-                        a1 = "<a href= \"admin/gestionuser\" >Gérer users</a>";
-                        a2 = "<a href= \"admin/gestionproduit\" >Gérer produits</a>";
+                        a1 = "<a href= \"admin/gestionuser\" >Manage users</a>";
+                        a2 = "<a href= \"admin/gestionproduit\" >Manage products</a>";
                     }
                     else
                         admin="Utilisateur";

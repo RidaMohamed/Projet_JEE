@@ -43,8 +43,8 @@
             Integer value = entry.getValue();
             somme += key.getPrix() * value;
 
-            res += "<tr id=" + key.getId() + "> <td>" + key.getNom() + "</td> " +
-                    "<td>" + key.getPrix() + "€</td> " +
+            res += "<tr id=" + key.getId() + "><td> <img id=petit src='"+key.getImage()+"' /> <p id=nom>" + key.getNom() + "<p></td> " +
+                    "<td>" + key.getPrix() + "$</td> " +
                     "<td id=" + key.getId() + "quantite>" + value + "</td>" +
                     " <td>" + key.getPrix() * value + "$</td> " +
                     "<td id=total>  " +
