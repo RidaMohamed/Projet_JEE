@@ -28,9 +28,9 @@
 		
 		//button ajiouter user 
 		String url = request.getContextPath()+"/admin/addproduit";
+		String url2 = request.getContextPath()+"/admin/updateproduit";
 		out.print("<div class=pan>");
-		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter produit</a></button>" + 
-		"<button class=button3 ><a href=# >Modifier produit</a></button></div>");
+		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter produit</a></button></div>");
 		for (Produit p : produit) {
 			
 			String res = "<div class=users id=" +p.getId() + "><div class=user>";
@@ -40,7 +40,8 @@
 			res += "<p class=des> <b>Prix</b> :  "   + p.getPrix()  +    "</p>";
 			res += "<p class=des> <b>Role</b> :  "   + p.getDescription() +    "</p>";
 			res += "</div>";
-			res+="<div class=button2 onClick=deleteProduit(" + p.getId()+ ") >Supprimer produit</div>";
+			res += "<div class=button2 onClick=deleteProduit(" + p.getId()+ ") >Supprimer produit</div>";
+			res += "<div class=button2 ><a href=" + url2 + " >Modifier produit</a></div>";
 		
 			res += "</div> </div>";
 			out.println(res);

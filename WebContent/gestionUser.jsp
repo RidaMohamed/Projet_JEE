@@ -28,9 +28,9 @@
 		
 		//button ajiouter user 
 		String url = request.getContextPath()+"/admin/adduser";
+		String url2 = request.getContextPath()+"/admin/updateuser";
 		out.print("<div class=pan>");
-		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter utlilisateur</a></button>"+
-		"<button class=button3 ><a href=# >Modifier utlilisateur</a></button></div>");
+		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter utlilisateur</a></button></div>");
 		for (Utilisateur u : user) {
 			
 			String res = "<div class=users id=" +u.getId() + "><div class=user>";
@@ -40,6 +40,7 @@
 			res += "<p class=des> <b>Role</b> :  "   + u.getRole() +    "</p>";
 			res += "</div>";
 			res+="<div class=button2 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
+			res+="<div class=button2 ><a href=" + url2 + " >Modifier utlilisateur</a></div>";
 		
 			res += "</div> </div>";
 			out.println(res);
