@@ -17,6 +17,7 @@ import dao.ProduitDAO;
 @WebServlet("/UpdateProduit")
 public class UpdateProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private int id_prod ;
        
     public UpdateProduit() {
         super();
@@ -25,6 +26,7 @@ public class UpdateProduit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//recuperer le produit 
 		Produit pro = ProduitDAO.getProduit(Integer.valueOf(request.getParameter("id")))	;
+		id_prod = Integer.valueOf(request.getParameter("id"));
 		
 		request.setAttribute("produit", pro);
 
@@ -38,7 +40,7 @@ public class UpdateProduit extends HttpServlet {
 		int prixProduit    = Integer.valueOf(request.getParameter("prix_prod"));
 		
 		//Lancer la requette
-		boolean b = AdminDAO.updateProduit(nomProduit, des_Produit, prixProduit);
+		boolean b = AdminDAO.updateProduit(nomProduit, des_Produit, prixProduit, id_prod);
 		if(b) {
 			//Vers gestion produit
 			response.sendRedirect("gestionproduit");			

@@ -173,7 +173,7 @@ public class AdminDAO {
         return null;
 	}
 	
-	public static boolean updateProduit(String nomProd , String descProd, int prix) {
+	public static boolean updateProduit(String nomProd , String descProd, int prix, int id_prouit) {
 		boolean b = false;
 
 		// create connexion
@@ -185,6 +185,7 @@ public class AdminDAO {
 			stmt.setString(1, nomProd);
 			stmt.setString(2, descProd);
 			stmt.setInt(3, prix);
+			stmt.setInt(4, id_prouit);
 			
 			stmt.executeUpdate();
 			b = true;
@@ -197,7 +198,7 @@ public class AdminDAO {
 	}
 
 	
-	public static boolean updateUser(String pseudo, String pass, String role) {
+	public static boolean updateUser(String pseudo, String pass, String role, int id_user) {
 		boolean b = false;
 
 		// create connexion
@@ -209,6 +210,7 @@ public class AdminDAO {
 			stmt.setString(1, pseudo);
 			stmt.setString(2, pass);
 			stmt.setString(3, role);
+			stmt.setInt(4, id_user);
 
 			stmt.executeUpdate();
 			b = true;

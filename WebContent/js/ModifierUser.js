@@ -1,11 +1,9 @@
-function modifierUser(id){
+function modifierUser(id, url){
 
     $.ajax({
-        url : 'updateuser',
+        url : url,
         type : 'GET', // Le type de la requête HTTP, ici devenu POST
         data : 'id=' + id, // On fait passer nos variables, exactement comme en GET, au script more_com.php
-    }).done(function () {
-  
     });
 
 

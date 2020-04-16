@@ -42,7 +42,7 @@
 			res += "<p class=des> <b>Role</b> :  "   + u.getRole() +    "</p>";
 			res += "</div>";
 			res += "<div class=button2 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
-			res += "<div class=button2 onClick=modifierUser(" + u.getId()+ ")>Modifier utlilisateur</div>";
+			res += "<div class=button3 onClick=modifierUser(" + u.getId()+",'"+request.getContextPath()+"/admin/updateuser')>Modifier utlilisateur</div>";
 		
 			res += "</div> </div>";
 			out.println(res);
