@@ -16,8 +16,6 @@
 <script
 	src="${pageContext.request.contextPath}/js/SupprimerUtilisateur.js"></script>
 <script
-	src="${pageContext.request.contextPath}/js/ModifierUser.js"></script>
-<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>Gestion user</title>
 </head>
@@ -30,7 +28,7 @@
 		
 		//button ajiouter user 
 		String url = request.getContextPath()+"/admin/adduser";
-		String url2 = request.getContextPath()+"/admin/updateuser";
+		String url2 ;
 		out.print("<div class=pan>");
 		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter utlilisateur</a></button></div>");
 		for (Utilisateur u : user) {
@@ -42,8 +40,8 @@
 			res += "<p class=des> <b>Role</b> :  "   + u.getRole() +    "</p>";
 			res += "</div>";
 			res += "<div class=button2 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
-			res += "<div class=button3 onClick=modifierUser(" + u.getId()+",'"+request.getContextPath()+"/admin/updateuser')>Modifier utlilisateur</div>";
-		
+			url2 = request.getContextPath()+"/admin/updateuser?id=" + u.getId(); 
+			res += "<div class=button2> <a href = " + url2 + ">Modifier utlilisateur</a></div>";
 			res += "</div> </div>";
 			out.println(res);
 		}

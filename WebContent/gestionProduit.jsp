@@ -16,8 +16,6 @@
 <script
 	src="${pageContext.request.contextPath}/js/SupprimerProduit.js"></script>
 <script
-	src="${pageContext.request.contextPath}/js/ModifierProduit.js"></script>
-<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>Gestion produits</title>
 </head>
@@ -30,7 +28,7 @@
 		
 		//button ajiouter user 
 		String url = request.getContextPath()+"/admin/addproduit";
-		String url2 = request.getContextPath()+"/admin/updateproduit";
+		String url2;
 		out.print("<div class=pan>");
 		out.println("<div class=div_button ><button class=button3 ><a href="+url+" >Ajouter produit</a></button></div>");
 		for (Produit p : produit) {
@@ -40,10 +38,11 @@
 			res += "<h3 class=titre > " + p.getId()+ " " + "</h3>";
 			res += "<p class=des> <b>Nom produit</b> : " + p.getNom() +    "</p>";
 			res += "<p class=des> <b>Prix</b> :  "   + p.getPrix()  +    "</p>";
-			res += "<p class=des> <b>Role</b> :  "   + p.getDescription() +    "</p>";
+			res += "<p class=des> <b>Description</b> :  "   + p.getDescription() +    "</p>";
 			res += "</div>";
 			res += "<div class=button2 onClick=deleteProduit(" + p.getId()+ ") >Supprimer produit</div>";
-			res += "<div class=button2 onClick=modifierProduit(" + p.getId()+ ")>Modifier produit</div>";
+			url2 = request.getContextPath()+"/admin/updateproduit?id=" + p.getId(); 
+			res += "<div class=button3> <a href = " + url2 + ">Modifier utlilisateur</a></div>";
 		
 			res += "</div> </div>";
 			out.println(res);
