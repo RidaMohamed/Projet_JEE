@@ -28,8 +28,10 @@
 			<input type="text" placeholder="Entrer prix" name="prix_Produit" required>
 			
 			<label for="descr"><b>Description</b></label> 
-			<input type="text" placeholder="Entrer description" name="description_Produit" style="font-size:10px;"required>
-
+			<div style="display: block;">
+			<textarea placeholder="Entrer description" name="description_Produit" style=" height:250px; width:450px; margin-top:5px;" required></textarea>
+			</div>
+			
 			<button class="button button1" type="submit">Add</button>
 
 		</div>

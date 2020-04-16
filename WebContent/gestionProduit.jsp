@@ -38,13 +38,13 @@
 			res += "<h3 class=titre > " + p.getId()+ " " + "</h3>";
 			res += "<p class=des> <b>Nom produit</b> : " + p.getNom() +    "</p>";
 			res += "<p class=des> <b>Prix</b> :  "   + p.getPrix()  +    "</p>";
-			res += "<p class=des> <b>Description</b> :  "   + p.getDescription() +    "</p>";
 			res += "</div>";
-			res += "<div class=button2 onClick=deleteProduit(" + p.getId()+ ") >Supprimer produit</div>";
+			res += "<div><p class=des> <b>Description</b> :  "   + p.getDescription() +    "</p></div>";
+			res += "<div class=div_buttons><div class=button2 onClick=deleteProduit(" + p.getId()+ ") >Supprimer produit</div>";
 			url2 = request.getContextPath()+"/admin/updateproduit?id=" + p.getId(); 
-			res += "<div class=button3> <a href = " + url2 + ">Modifier utlilisateur</a></div>";
+			res += "<div class=button4> <a href = " + url2 + ">Modifier utlilisateur</a></div>";
 		
-			res += "</div> </div>";
+			res += "</div></div> </div>";
 			out.println(res);
 		}
 		

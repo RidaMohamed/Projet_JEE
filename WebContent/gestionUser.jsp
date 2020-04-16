@@ -39,10 +39,11 @@
 			res += "<p class=des> <b>Pseudo</b> : " + u.getPseudo() +    "</p>";
 			res += "<p class=des> <b>Role</b> :  "   + u.getRole() +    "</p>";
 			res += "</div>";
+			res += "<div class=div_buttons>";
 			res += "<div class=button2 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
 			url2 = request.getContextPath()+"/admin/updateuser?id=" + u.getId(); 
-			res += "<div class=button2> <a href = " + url2 + ">Modifier utlilisateur</a></div>";
-			res += "</div> </div>";
+			res += "<div class=button4> <a href = " + url2 + ">Modifier utlilisateur</a></div>";
+			res += " </div> </div> </div>";
 			out.println(res);
 		}
 		

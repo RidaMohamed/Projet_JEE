@@ -34,7 +34,10 @@
 			    "<input type=text name=prix_prod value= "  +prod.getPrix() + " required>"+
 			
 			    "<label for=desc_prod><b>description</b></label> "+
-			    "<input type=text name=desc_prod value= " +prod.getDescription() + " required>"+
+			    "<div style=display: block;>"+
+			    "<textarea placeholder=Entrer description name=desc_prod" +
+			    "class=textarea_input +  required>" +prod.getDescription()+ "</textarea>"+
+			    "</div>"+
   
 			    "<button class=button button1 type=submit>Modify produit</button>"+
 
