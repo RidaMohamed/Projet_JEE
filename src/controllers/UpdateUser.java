@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.Utilisateur;
+import dao.AdminDAO;
+
+
 @WebServlet("/UpdateUser")
 public class UpdateUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -18,12 +22,33 @@ public class UpdateUser extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//recuperer le produit 
+		Utilisateur user = AdminDAO.getUser(Integer.valueOf(request.getParameter("id")))	;
+		System.out.println(response);		
+		
+		request.setAttribute("user", user);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/updateUser.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		String pseudo      = request.getParameter("nom");
+		String pass      = request.getParameter("pass");
+		String role      = request.getParameter("roles");
+
+		
+		//Lancer la requette
+		boolean b = AdminDAO.updateUser(pseudo, pass, role);
+		if(b) {
+			//Vers gestion user
+			response.sendRedirect("gestionuser");			
+		}
+		else
+		{
+			//Erreur
+			response.sendRedirect("/Error404.jsp");		
+		}
 	}
 
 }

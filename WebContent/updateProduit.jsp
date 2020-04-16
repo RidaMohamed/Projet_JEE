@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.Collection"%>
+<%@ page import="beans.Produit"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,20 +19,31 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-	<form action="updateproduit" method="post">
-		<h2>Add user :</h2>
-		<div class="container">
-		
-			<label for="nom"><b>Pseudo</b></label> 
-			<input type="text" placeholder="Entrer Pseudo" name="nom" required> 
+	<%
+
+    Produit prod = (Produit)request.getAttribute("produit");
+    
+	String str= "<form action=updateproduit method=post>"+
+	         	"<h2>Modifier user :</h2>"+
+		        "<div class=container>"+
+	         	
+			    "<label for=nom_prod><b>Nom produit</b></label> "+
+			    "<input type=text name=nom_prod value= "  +prod.getNom() + " required>"+
 			
-			<label for="pass"><b>Password</b></label> 
-			<input type="password" placeholder="Entrer Password" name="pass" required>
+			    "<label for=prix_prod><b>Prix</b></label>"+
+			    "<input type=text name=prix_prod value= "  +prod.getPrix() + " required>"+
+			
+			    "<label for=desc_prod><b>description</b></label> "+
+			    "<input type=text name=desc_prod value= " +prod.getDescription() + " required>"+
+  
+			    "<button class=button button1 type=submit>Modify produit</button>"+
 
-			<button class="button button1" type="submit">Add</button>
+		        "</div>"+
+             	"</form>";
+			    out.print( str );
 
-		</div>
-	</form>
+
+%>
 <jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -16,6 +16,8 @@
 <script
 	src="${pageContext.request.contextPath}/js/SupprimerUtilisateur.js"></script>
 <script
+	src="${pageContext.request.contextPath}/js/ModifierUser.js"></script>
+<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>Gestion user</title>
 </head>
@@ -39,8 +41,8 @@
 			res += "<p class=des> <b>Pseudo</b> : " + u.getPseudo() +    "</p>";
 			res += "<p class=des> <b>Role</b> :  "   + u.getRole() +    "</p>";
 			res += "</div>";
-			res+="<div class=button2 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
-			res+="<div class=button2 ><a href=" + url2 + " >Modifier utlilisateur</a></div>";
+			res += "<div class=button2 onClick=deleteUser(" + u.getId()+ ") >Supprimer utlilisateur</div>";
+			res += "<div class=button2 onClick=modifierUser(" + u.getId()+ ")>Modifier utlilisateur</div>";
 		
 			res += "</div> </div>";
 			out.println(res);

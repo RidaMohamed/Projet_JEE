@@ -19,6 +19,10 @@ public class AdminDAO {
 	static String sql2_2 = "delete from panier where id_utilisateur=? ";
 	static String sql3   = "delete from produit where id=?";
 	static String sql4   = "insert produit (nom, prix, des_prod) values (?,?,?)";
+	static String sql5   = "select * from utilisateur where id = ?";
+	static String sql6   = "update utilisateur set pseudo=?,password=?,role=? where id = ?";
+	static String sql7   = "update produit set nom=?,des_prod=?,prix=? where id = ?";
+
 
 	// -------------------------------------------------
 
@@ -136,6 +140,77 @@ public class AdminDAO {
 			stmt.setString(3, desProduit);
 			
 			stmt.execute();
+			b = true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return b;
+	}
+	
+	public static Utilisateur getUser(int idUser) {
+		
+        try {
+            ConnexionBDD instance = ConnexionBDD.getInstance();
+            Connection con = instance.getCnx();
+            PreparedStatement stmt = null;
+            stmt = con.prepareStatement(sql5);
+            stmt.setInt(1, idUser);
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+            	Utilisateur u = new Utilisateur(rs.getInt("id"),rs.getString("pseudo"),
+            			rs.getString("password"),rs.getString("role"));
+                return u;
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+	}
+	
+	public static boolean updateProduit(String nomProd , String descProd, int prix) {
+		boolean b = false;
+
+		// create connexion
+		ConnexionBDD instance = ConnexionBDD.getInstance();
+		Connection con = instance.getCnx();
+		try {
+			PreparedStatement stmt = null;
+			stmt = con.prepareStatement(sql7);
+			stmt.setString(1, nomProd);
+			stmt.setString(2, descProd);
+			stmt.setInt(3, prix);
+			
+			stmt.executeUpdate();
+			b = true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return b;
+	}
+
+	
+	public static boolean updateUser(String pseudo, String pass, String role) {
+		boolean b = false;
+
+		// create connexion
+		ConnexionBDD instance = ConnexionBDD.getInstance();
+		Connection con = instance.getCnx();
+		try {
+			PreparedStatement stmt = null;
+			stmt = con.prepareStatement(sql6);
+			stmt.setString(1, pseudo);
+			stmt.setString(2, pass);
+			stmt.setString(3, role);
+
+			stmt.executeUpdate();
 			b = true;
 
 		} catch (SQLException e) {

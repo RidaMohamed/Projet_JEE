@@ -16,6 +16,8 @@
 <script
 	src="${pageContext.request.contextPath}/js/SupprimerProduit.js"></script>
 <script
+	src="${pageContext.request.contextPath}/js/ModifierProduit.js"></script>
+<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>Gestion produits</title>
 </head>
@@ -41,7 +43,7 @@
 			res += "<p class=des> <b>Role</b> :  "   + p.getDescription() +    "</p>";
 			res += "</div>";
 			res += "<div class=button2 onClick=deleteProduit(" + p.getId()+ ") >Supprimer produit</div>";
-			res += "<div class=button2 ><a href=" + url2 + " >Modifier produit</a></div>";
+			res += "<div class=button2 onClick=modifierProduit(" + p.getId()+ ")>Modifier produit</div>";
 		
 			res += "</div> </div>";
 			out.println(res);
