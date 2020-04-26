@@ -25,7 +25,7 @@ public class PanierDAO {
 
         try {
 
-            int id_user =1;
+            int id_user =id;
             int id_produit=p;
 
             int nombreProduit = getNbProduit(id_user,id_produit);
@@ -41,9 +41,8 @@ public class PanierDAO {
                 // ID produit
                 stmt.setInt(1, p);
 
-                // TODO AVEC L'ID EN VARIABLE DE SESSION
                 //ID User
-                stmt.setInt(2, id);
+                stmt.setInt(2, id_user);
 
                 //Quantite
                 stmt.setInt(3, nombreProduit);

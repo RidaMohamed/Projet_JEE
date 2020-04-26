@@ -38,10 +38,10 @@ public class PanierControler extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int id_user=1;
+        HttpSession session = request.getSession(true);
+        int id= (int) session.getAttribute("id");
 
-        // TODO AVEC ID USER
-        HashMap<Produit, Integer> panier = PanierDAO.getPanier(id_user);
+        HashMap<Produit, Integer> panier = PanierDAO.getPanier(id);
 
         request.setAttribute("panier", panier);
 

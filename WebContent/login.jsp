@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style1.css"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/node_modules/@fortawesome/fontawesome-free/css/all.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
 	rel="stylesheet">
