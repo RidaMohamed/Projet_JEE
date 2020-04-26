@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Admin filter.
+ */
 public class AdminFilter implements Filter {
     public void destroy() {
     }

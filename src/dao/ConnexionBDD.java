@@ -6,6 +6,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+/**
+ * The type Connexion bdd.
+ */
 public class ConnexionBDD {
 
     private static volatile ConnexionBDD instance;
@@ -39,6 +42,11 @@ public class ConnexionBDD {
         }
     }
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static synchronized ConnexionBDD getInstance() {
         if(instance==null)
             instance = new ConnexionBDD();
@@ -46,10 +54,20 @@ public class ConnexionBDD {
         return instance;
     }
 
+    /**
+     * Gets cnx.
+     *
+     * @return the cnx
+     */
     public Connection getCnx() {
         return cnx;
     }
 
+    /**
+     * Close cnx.
+     *
+     * @throws SQLException the sql exception
+     */
     public void closeCnx() throws SQLException{
         if(cnx!=null){
             cnx.close();

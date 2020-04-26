@@ -13,11 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import beans.Utilisateur;
 import dao.AdminDAO;
 
+/**
+ * The type Gerer user.
+ */
 @WebServlet("/GererUser")
 public class GererUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public GererUser() {
+    /**
+     * Instantiates a new Gerer user.
+     */
+    public GererUser() {
 		super();
 	}
 

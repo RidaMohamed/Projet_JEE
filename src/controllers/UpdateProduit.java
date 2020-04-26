@@ -14,12 +14,18 @@ import dao.AdminDAO;
 import dao.ProduitDAO;
 
 
+/**
+ * The type Update produit.
+ */
 @WebServlet("/UpdateProduit")
 public class UpdateProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int id_prod ;
-       
-    public UpdateProduit() {
+
+	/**
+	 * Instantiates a new Update produit.
+	 */
+	public UpdateProduit() {
         super();
     }
 
@@ -37,19 +43,20 @@ public class UpdateProduit extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomProduit  = request.getParameter("nom_prod");
 		String des_Produit = request.getParameter("desc_prod");
-		int prixProduit    = Integer.valueOf(request.getParameter("prix_prod"));
-		
-		//Lancer la requette
-		boolean b = AdminDAO.updateProduit(nomProduit, des_Produit, prixProduit, id_prod);
-		if(b) {
-			//Vers gestion produit
-			response.sendRedirect("gestionproduit");			
+		String image_produit=request.getParameter("image_prod");
+
+		try {
+			int prixProduit = Integer.parseInt(request.getParameter("prix_prod"));
+			//Lancer la requette
+			boolean b = AdminDAO.updateProduit(nomProduit, des_Produit, prixProduit,image_produit, id_prod);
+			response.sendRedirect("gestionproduit");
 		}
-		else
-		{
+		catch (NumberFormatException e){
 			//Erreur
-			response.sendRedirect("/Error404.jsp");		
+			response.sendRedirect("gestionproduit");
 		}
+		
+
 	}
 
 }

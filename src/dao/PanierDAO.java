@@ -9,8 +9,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+/**
+ * The type Panier dao.
+ */
 public class PanierDAO {
 
+    /**
+     * Ajouter panier.
+     *
+     * @param p  the p
+     * @param id the id
+     */
     public static void ajouterPanier(int p, int id){
 
 
@@ -107,6 +116,12 @@ public class PanierDAO {
         return -1;
     }
 
+    /**
+     * Gets nb element.
+     *
+     * @param id the id
+     * @return the nb element
+     */
     public static int getNbElement(int id) {
 
         int somme =0;
@@ -130,6 +145,12 @@ public class PanierDAO {
 
     }
 
+    /**
+     * Gets panier.
+     *
+     * @param id_user the id user
+     * @return the panier
+     */
     public static HashMap<Produit, Integer> getPanier(int id_user) {
 
         HashMap<Produit, Integer> res=new HashMap();
@@ -159,6 +180,12 @@ public class PanierDAO {
         return res;
     }
 
+    /**
+     * Supprimer.
+     *
+     * @param id_produit the id produit
+     * @param id_user    the id user
+     */
     public static void supprimer(int id_produit,int id_user) {
 
         try {

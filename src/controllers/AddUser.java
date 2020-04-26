@@ -10,10 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.AdminDAO;
 
+/**
+ * The type Add user.
+ */
 //@WebServlet("/AddUser")
 public class AddUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+    /**
+     * Instantiates a new Add user.
+     */
     public AddUser() {
         super();
     }
@@ -26,6 +32,8 @@ public class AddUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pseudo      = request.getParameter("nom");
 		String pass      = request.getParameter("pass");
+
+		pass=FactoryPassword.getHash(pass);
 		
 		//Lancer la requette
 		boolean b = AdminDAO.addUser(pseudo, pass);

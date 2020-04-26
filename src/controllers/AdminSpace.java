@@ -10,10 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+/**
+ * The type Admin space.
+ */
 @WebServlet("/AdminSpace")
 public class AdminSpace extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+    /**
+     * Instantiates a new Admin space.
+     */
     public AdminSpace() {
         super();
     }

@@ -6,9 +6,17 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * The type Produit dao.
+ */
 public class ProduitDAO {
 
 
+    /**
+     * Gets all produit.
+     *
+     * @return the all produit
+     */
     public static Collection<Produit> getAllProduit() {
 
         ArrayList<Produit> res = new ArrayList<>();
@@ -33,6 +41,12 @@ public class ProduitDAO {
         return res;
     }
 
+    /**
+     * Gets produit.
+     *
+     * @param id_produit the id produit
+     * @return the produit
+     */
     public static Produit getProduit(int id_produit) {
 
         try {
@@ -58,6 +72,12 @@ public class ProduitDAO {
 
     }
 
+    /**
+     * Gets pagination product.
+     *
+     * @param produit the produit
+     * @return the pagination product
+     */
     public static Collection<Produit> getPaginationProduct(int produit) {
         ArrayList<Produit> res = new ArrayList<>();
 
@@ -83,6 +103,11 @@ public class ProduitDAO {
         return res;
     }
 
+    /**
+     * Count produit int.
+     *
+     * @return the int
+     */
     public static int countProduit() {
 
         try {

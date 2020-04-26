@@ -10,22 +10,63 @@ import java.util.Collection;
 
 import beans.Utilisateur;
 
+/**
+ * The type Admin dao.
+ */
 public class AdminDAO {
 
-	// sql for prepared stmt
+	/**
+	 * The constant sql.
+	 */
+// sql for prepared stmt
 	static String sql    = "select *  from utilisateur ";
+	/**
+	 * The Sql 1.
+	 */
 	static String sql1   = "insert into utilisateur (pseudo, password) values (?,?)";
+	/**
+	 * The Sql 2.
+	 */
 	static String sql2   = "delete from utilisateur where id=? ";
+	/**
+	 * The Sql 2 2.
+	 */
 	static String sql2_2 = "delete from panier where id_utilisateur=? ";
+	/**
+	 * The Sql 3.
+	 */
 	static String sql3   = "delete from produit where id=?";
+	/**
+	 * The Sql 4.
+	 */
 	static String sql4   = "insert produit (nom, prix, des_prod) values (?,?,?)";
+	/**
+	 * The Sql 5.
+	 */
 	static String sql5   = "select * from utilisateur where id = ?";
+	/**
+	 * The Sql 6.
+	 */
 	static String sql6   = "update utilisateur set pseudo=?,password=?,role=? where id = ?";
-	static String sql7   = "update produit set nom=?,des_prod=?,prix=? where id = ?";
+	/**
+	 * The Sql 7.
+	 */
+	static String sql7   = "update produit set nom=?,des_prod=?,prix=?,image=? where id = ?";
+
+
+	/**
+	 * The Sql 8.
+	 */
+	static String sql8   = "insert produit (nom, prix, des_prod,image) values (?,?,?,?)";
 
 
 	// -------------------------------------------------
 
+	/**
+	 * Gets all users.
+	 *
+	 * @return the all users
+	 */
 	public static Collection<Utilisateur> getAllUsers() {
 		// liste for all users
 		ArrayList<Utilisateur> res = new ArrayList<>();
@@ -53,6 +94,13 @@ public class AdminDAO {
 		return res;
 	}
 
+	/**
+	 * Add user boolean.
+	 *
+	 * @param pseudo the pseudo
+	 * @param pass   the pass
+	 * @return the boolean
+	 */
 	public static boolean addUser(String pseudo, String pass) {
 		boolean b = false;
 
@@ -77,7 +125,13 @@ public class AdminDAO {
 		return b;
 	}
 
-	
+
+	/**
+	 * Delete user boolean.
+	 *
+	 * @param id the id
+	 * @return the boolean
+	 */
 	public static boolean deleteUser(int id) {
 		boolean b = false;
 
@@ -103,7 +157,13 @@ public class AdminDAO {
 
 		return b;
 	}
-	
+
+	/**
+	 * Delete produit boolean.
+	 *
+	 * @param id the id
+	 * @return the boolean
+	 */
 	public static boolean deleteProduit(int id) {
 		boolean b = false;
 
@@ -125,7 +185,15 @@ public class AdminDAO {
 
 		return b;
 	}
-	
+
+	/**
+	 * Add produit boolean.
+	 *
+	 * @param nomProduit  the nom produit
+	 * @param desProduit  the des produit
+	 * @param prixProduit the prix produit
+	 * @return the boolean
+	 */
 	public static boolean addProduit(String nomProduit, String desProduit, int prixProduit) {
 		boolean b = false;
 
@@ -148,7 +216,13 @@ public class AdminDAO {
 
 		return b;
 	}
-	
+
+	/**
+	 * Gets user.
+	 *
+	 * @param idUser the id user
+	 * @return the user
+	 */
 	public static Utilisateur getUser(int idUser) {
 		
         try {
@@ -172,8 +246,18 @@ public class AdminDAO {
 
         return null;
 	}
-	
-	public static boolean updateProduit(String nomProd , String descProd, int prix, int id_prouit) {
+
+	/**
+	 * Update produit boolean.
+	 *
+	 * @param nomProd       the nom prod
+	 * @param descProd      the desc prod
+	 * @param prix          the prix
+	 * @param image_produit the image produit
+	 * @param id_prouit     the id prouit
+	 * @return the boolean
+	 */
+	public static boolean updateProduit(String nomProd , String descProd, int prix,String image_produit, int id_prouit) {
 		boolean b = false;
 
 		// create connexion
@@ -185,7 +269,8 @@ public class AdminDAO {
 			stmt.setString(1, nomProd);
 			stmt.setString(2, descProd);
 			stmt.setInt(3, prix);
-			stmt.setInt(4, id_prouit);
+			stmt.setString(4,image_produit);
+			stmt.setInt(5, id_prouit);
 			
 			stmt.executeUpdate();
 			b = true;
@@ -197,7 +282,16 @@ public class AdminDAO {
 		return b;
 	}
 
-	
+
+	/**
+	 * Update user boolean.
+	 *
+	 * @param pseudo  the pseudo
+	 * @param pass    the pass
+	 * @param role    the role
+	 * @param id_user the id user
+	 * @return the boolean
+	 */
 	public static boolean updateUser(String pseudo, String pass, String role, int id_user) {
 		boolean b = false;
 
@@ -222,4 +316,38 @@ public class AdminDAO {
 		return b;
 	}
 
+	/**
+	 * Add produit boolean.
+	 *
+	 * @param nomProduit    the nom produit
+	 * @param des_produit   the des produit
+	 * @param prixProduit   the prix produit
+	 * @param image_produit the image produit
+	 * @return the boolean
+	 */
+	public static boolean addProduit(String nomProduit, String des_produit, int prixProduit, String image_produit) {
+
+		boolean b = false;
+
+		// create connexion
+		ConnexionBDD instance = ConnexionBDD.getInstance();
+		Connection con = instance.getCnx();
+		try {
+			PreparedStatement stmt = null;
+			stmt = con.prepareStatement(sql8);
+			stmt.setString(1, nomProduit);
+			stmt.setInt(2, prixProduit);
+			stmt.setString(3, des_produit);
+			stmt.setString(4, image_produit);
+
+
+			stmt.execute();
+			b = true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return b;
+	}
 }

@@ -40,13 +40,18 @@
 
                     int id = (int) session.getAttribute("id");
                     int element = PanierDAO.getNbElement(id);
+
+                    String name ="nbElement";
+                    String value=element+"";
+
+                    Cookie cookie = new Cookie(name, value);
+                    cookie.setMaxAge(60 * 60 * 24 * 30);
+                    response.addCookie(cookie);
+
                     out.print(" <a href=" +request.getContextPath()+"/user/panier >"+
                             "        <i class=\"fa\" style=\"font-size:24px\">&#xf07a;</i> <span class='shopping-cart' id='lblCartCount'>" + element + " </span></a>");
                 }
             %>
-
-
-
 
     </div>
 

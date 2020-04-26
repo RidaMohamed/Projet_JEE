@@ -17,7 +17,7 @@
 	rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<title>ajouts d'utlilisateur</title>
+<title>Modify User</title>
 
 </head>
 <body>
@@ -25,19 +25,33 @@
 	<%
 
     Utilisateur user = (Utilisateur)request.getAttribute("user");
+
+    String menu="";
+    if(user.getRole().equals("admin")){
+    	menu="<select id=liste name=\"role\">\n" +
+				"  <option value=\"utilisateur\">utilisateur</option>\n" +
+				"  <option value=\"admin\" selected>admin</option>\n" +
+				"</select>";
+	}
+    else{
+		menu="<select id=liste name=\"role\">\n" +
+				"  <option value=\"utilisateur\" selected>utilisateur</option>\n" +
+				"  <option value=\"admin\" >admin</option>\n" +
+				"</select>";
+	}
     
 	String str= "<form action=updateuser method=post>"+
-	         	"<h2>Modifier user :</h2>"+
+	         	"<h2>Modify user :</h2>"+
 		        "<div class=container>"+
 	         	
 			    "<label for=nom><b>Pseudo</b></label> "+
 			    "<input type=text name=nom value= "  +user.getPseudo() + " required>"+
 			
-			    "<label for=pass><b>Password</b></label>"+
+			    "<label for=pass><b>New password</b></label>"+
 			    "<input type=password name=pass value= "  +user.getPassword() + " required>"+
 			
 			    "<label for=role><b>Role</b></label> "+
-			    "<input type=text name=role value= " +user.getRole() + " required>"+
+			    menu+
   
 			    "<button class=button button1 type=submit>Modify user</button>"+
 

@@ -13,11 +13,17 @@ import beans.Produit;
 import dao.AdminDAO;
 import dao.ProduitDAO;
 
+/**
+ * The type Gerer produit.
+ */
 //@WebServlet("/GererProduit")
 public class GererProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public GererProduit() {
+    /**
+     * Instantiates a new Gerer produit.
+     */
+    public GererProduit() {
 		super();
 	}
 

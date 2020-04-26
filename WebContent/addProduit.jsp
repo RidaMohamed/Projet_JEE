@@ -18,19 +18,23 @@
 <body>
 <jsp:include page="header.jsp" />
 	<form action="addproduit" method="post">
-		<h2>Ajouter produit:</h2>
+		<h2>Add product:</h2>
 		<div class="container">
 		
-			<label for="nom"><b>Nom produit</b></label> 
-			<input type="text" placeholder="Entrer nom produit" name="nom_Produit" required> 
+			<label for="nom"><b>Product name</b></label>
+			<input type="text" placeholder="product name ..." name="nom_Produit" required>
 			
-			<label for="prix"><b>Prix</b></label> 
-			<input type="text" placeholder="Entrer prix" name="prix_Produit" required>
+			<label for="prix"><b>Price</b></label>
+			<input type="text" placeholder="price ..." name="prix_Produit" required>
 			
 			<label for="descr"><b>Description</b></label> 
 			<div style="display: block;">
-			<textarea placeholder="Entrer description" name="description_Produit" style=" height:250px; width:450px; margin-top:5px;" required></textarea>
+			<textarea placeholder="description .." name="description_Produit" style=" height:250px; width:450px; margin-top:5px;" required></textarea>
 			</div>
+
+
+			<label for="image"><b>Image</b></label>
+			<input type="url" placeholder="url image (not required)..." name="image_Produit">
 			
 			<button class="button button1" type="submit">Add</button>
 

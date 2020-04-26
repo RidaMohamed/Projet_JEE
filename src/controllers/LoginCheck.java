@@ -13,11 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import dao.UserConnexion;
 
 
-
+/**
+ * The type Login check.
+ */
 @WebServlet("/LoginCheck")
 public class LoginCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+    /**
+     * Instantiates a new Login check.
+     */
     public LoginCheck() {
         super();
     }
@@ -38,6 +43,8 @@ public class LoginCheck extends HttpServlet {
 
 		//retrive data from to bdd
 		UserConnexion cnx = new UserConnexion();
+
+		pass=FactoryPassword.getHash(pass);
 		user = cnx.checklogin(pseudo, pass);
 
 		if (user.get(0).equals("-1")) {

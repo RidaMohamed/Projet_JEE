@@ -54,9 +54,29 @@
 		<servlet-class>controllers.GererProduit</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>UpdateUser</servlet-name>
+		<servlet-class>controllers.UpdateUser</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>UpdateProduct</servlet-name>
+		<servlet-class>controllers.UpdateProduit</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>User</servlet-name>
 		<url-pattern>/user</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UpdateUser</servlet-name>
+		<url-pattern>/admin/updateuser</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>UpdateProduct</servlet-name>
+		<url-pattern>/admin/updateproduit</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

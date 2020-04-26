@@ -13,11 +13,17 @@ import beans.Utilisateur;
 import dao.AdminDAO;
 
 
+/**
+ * The type Update user.
+ */
 //@WebServlet("/UpdateUser")
 public class UpdateUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int id_user ;
-       
+
+    /**
+     * Instantiates a new Update user.
+     */
     public UpdateUser() {
         super();
     }
@@ -36,6 +42,8 @@ public class UpdateUser extends HttpServlet {
 		String pseudo      = request.getParameter("nom");
 		String pass      = request.getParameter("pass");
 		String role      = request.getParameter("role");
+
+		pass=FactoryPassword.getHash(pass);
 
 		//Lancer la requette
 		boolean b = AdminDAO.updateUser(pseudo, pass, role, id_user);

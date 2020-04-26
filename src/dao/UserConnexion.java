@@ -5,10 +5,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ * The type User connexion.
+ */
 public class UserConnexion {
 
+	/**
+	 * The Sql.
+	 */
 	String sql = "select *  from utilisateur  where pseudo=? and password=?";
 
+	/**
+	 * Checklogin array list.
+	 *
+	 * @param pseudo the pseudo
+	 * @param pass   the pass
+	 * @return the array list
+	 */
 	public ArrayList<String> checklogin(String pseudo, String pass) {
 		//liste pour le retour d'info
 		ArrayList<String> user = new ArrayList<String>();
@@ -39,7 +52,14 @@ public class UserConnexion {
 		return user;
 	}
 
-    public int getUserId(String pseudo, String pass) {
+	/**
+	 * Gets user id.
+	 *
+	 * @param pseudo the pseudo
+	 * @param pass   the pass
+	 * @return the user id
+	 */
+	public int getUserId(String pseudo, String pass) {
 		int id =-1;
 		try {
 			// getting the cnx
@@ -63,6 +83,13 @@ public class UserConnexion {
 		return id;
     }
 
+	/**
+	 * Gets pseudo.
+	 *
+	 * @param pseudo the pseudo
+	 * @param pass   the pass
+	 * @return the pseudo
+	 */
 	public String getPseudo(String pseudo, String pass) {
 		String id ="";
 		try {
